@@ -1,0 +1,49 @@
+﻿@model List<ProductApp.Entities.Employee>
+
+<h4>Report</h4>
+<a asp-action="Create" class="btn btn-success">+ Add</a>
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Position</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Age</th>
+            <th>Email</th>
+            <th>Education</th>
+            <th>Phone</th>
+            <th>Gender</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var employee in Model)
+        {
+            <tr>
+                <td>@employee.Id</td>
+                <td>@employee.Position</td>
+                <td>@employee.Name</td>
+                <td>@employee.Address</td>
+                <td>@employee.Age</td>
+                <td>@employee.Email</td>
+                <td>@employee.Education</td>
+                <td>@employee.Phone</td>
+                <td>@employee.Gender</td>
+                <td>
+                    <a asp-action="Update" asp-route-id="@employee.Id" class="btn btn-warning" aria-label="Update Employee">
+                        <i class="bi bi-pencil-square"></i> Update
+                    </a>
+                </td>
+                <td>
+                    <a asp-action="Delete" asp-route-id="@employee.Id" class="btn btn-danger" aria-label="Delete Employee">
+                        <i class="bi bi-trash"></i> Delete
+                    </a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
